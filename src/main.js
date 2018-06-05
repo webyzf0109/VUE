@@ -5,6 +5,10 @@ import App from './App'
 //vuex 引用
 import Vuex from 'vuex'
 Vue.use(Vuex)
+    //mint-ui
+import Mint from 'mint-ui';
+Vue.use(Mint);
+import "mint-ui/lib/style.min.css"
 
 //vuex支持模块化 module  在主index.js里面引入所有的 store module   每个module store 定义各自需要的属性
 // 最终export default 实现全局 原理类似引入全局变量
