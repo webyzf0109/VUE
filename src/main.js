@@ -9,11 +9,14 @@ Vue.use(Vuex)
 import Mint from 'mint-ui';
 Vue.use(Mint);
 import "mint-ui/lib/style.min.css"
-
-//vuex支持模块化 module  在主index.js里面引入所有的 store module   每个module store 定义各自需要的属性
-// 最终export default 实现全局 原理类似引入全局变量
-// 每个页面 需要引用  import { mapGetters 需要用到的store方法 } from 'vuex'
-//github 购物车实例地址  https://github.com/vuejs/vuex/tree/dev/examples/shopping-cart
+//iview
+import iView from 'iview';
+import 'iview/dist/styles/iview.css';
+Vue.use(iView)
+    //vuex支持模块化 module  在主index.js里面引入所有的 store module   每个module store 定义各自需要的属性
+    // 最终export default 实现全局 原理类似引入全局变量
+    // 每个页面 需要引用  import { mapGetters 需要用到的store方法 } from 'vuex'
+    //github 购物车实例地址  https://github.com/vuejs/vuex/tree/dev/examples/shopping-cart
 
 const store = new Vuex.Store({
     state: {
