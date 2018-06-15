@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function loadImg(src) {
+            const promise = new Promise(function(resolve, reject) {
+                setTimeout(() => {
+                    const img = document.createElement('img')
+                    document.body.appendChild(img)
+                    img.onload = function() {
+                        resolve(img)
+                    }
+                    img.onerror = function() {
+                        reject('图片加载失败')
+                    }
+                    img.src = src
+                }, 2000)
+
+            })
+            return promise
+        }
+        const src1 = 'https://www.imooc.com/static/img/index/logo_new.png'
+        const src2 = 'https://img1.mukewang.com/545862fe00017c2602200220-100-100.jpg'
+        const load = async function() {
+            const result1 = await loadImg(src1)
+            console.log(result1)
+            const result2 = await loadImg(src2)
+            console.log(result2)
+        }
+        load()
+
+        //await 命令后面的 Promise 对象，运行结果可能是 rejected，所以最好把 await 命令放在 try...catch 代码块中。try..catch错误处理也比较符合我们平常编写同步代码时候处理的逻辑。
+        async function myFunction() {
+            try {
+                await somethingThatReturnsAPromise();
+            } catch (err) {
+                console.log(err);
+            }
+        }
+    </script>
+</body>
+
+</html>

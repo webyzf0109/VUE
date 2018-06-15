@@ -1,0 +1,46 @@
+<script>
+    //promise
+    const makeRequest = () => {
+            return promise1()
+                .then(value1 => {
+                    return promise2(value1)
+                        .then(value2 => {
+                            return promise3(value1, value2)
+                        })
+                })
+        }
+        //async/await
+    const makeRequest = async() => {
+        const value1 = await promise1()
+        const value2 = await promise2(value1)
+        return promise3(value1, value2)
+    }
+
+    //3.条件语句
+    const makeRequest = () => {
+        return getJSON()
+            .then(data => {
+                if (data.needsAnotherRequest) {
+                    return makeAnotherRequest(data)
+                        .then(moreData => {
+                            console.log(moreData)
+                            return moreData
+                        })
+                } else {
+                    console.log(data)
+                    return data
+                }
+            })
+    }
+    const makeRequest = async() => {
+        const data = await getJSON()
+        if (data.needsAnotherRequest) {
+            const moreData = await makeAnotherRequest(data);
+            console.log(moreData)
+            return moreData
+        } else {
+            console.log(data)
+            return data
+        }
+    }
+</script>
