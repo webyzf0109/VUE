@@ -6,6 +6,7 @@ import loadmore from '@/views/mintUi/loadmore'
 import loadinfinite from '@/views/mintUi/loadinfinite'
 import select from '@/views/select/select'
 import Chart from '@/views/Chart/Chart'
+import count from '@/views/count/count'
 
 Vue.use(Router)
 
@@ -39,6 +40,11 @@ export default new Router({
             path: '/Chart', //级联选择
             name: 'Chart',
             component: Chart
+        },
+        {
+            path: '/count', //数字渐变
+            name: 'count',
+            component: count
         },
     ]
 })
